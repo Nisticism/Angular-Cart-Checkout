@@ -18,4 +18,11 @@ export class CartComponent implements OnInit {
     //this.itemService.getItems()
   }
 
+  //  add up prices to get total
+  total() {
+    let total = 0;
+    this.items.forEach(item => total += item.price);
+    return total;
+  }
+
 }
