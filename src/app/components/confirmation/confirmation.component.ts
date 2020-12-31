@@ -7,15 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfirmationComponent implements OnInit {
 
-  constructor() { }
+  code: number = 0;
+
+  constructor() { 
+  }
 
   ngOnInit(): void {
-    alert(this.confirmation(5))
-
+    this.code = (this.confirmation(5))();
   }
 
   //  Create confirmation code
-
   confirmation = (digits: number) => function() {
   //  Randomly generate a number with some amount of digits
     let num: number = Math.floor((Math.random() * 9 * (10**(digits - 1)) + 10**(digits - 1))); 
