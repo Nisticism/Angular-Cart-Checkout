@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../../services/item.service';
 import { Item } from '../../models/Item';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -12,12 +13,22 @@ export class CartComponent implements OnInit {
   items: Item[] = []
   total: number = 0;
 
-  constructor(private itemService: ItemService) { }
+  constructor(private itemService: ItemService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.items = this.itemService.getItems()
 
-    
+    //  I wanted to be able to set this up, but I can't send complex objects with queryParams apparently
+
+    // //  If we get items from somewhere else, it will happen here:
+    // this.route.queryParams.subscribe(
+    //   params => {
+    //     // receive the items if they exist
+    //     if (params['items']) {
+    //       this.items = params['items'];
+    //     }
+    //   }
+    // )
 
     this.total = (this.addPrices(this.items)());
   }
