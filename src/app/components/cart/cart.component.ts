@@ -27,4 +27,18 @@ export class CartComponent implements OnInit {
     return total;
   }
 
+  //  update quantity
+  updateQuantities(items: Item[]) {
+    items.forEach(item => {
+      let id = "quantity" + item.id;
+      let quantity = parseInt((<HTMLInputElement>document.getElementById(id)).value.toString())
+      if (quantity < 1) {
+        alert("Quantity must be greater than 0.")
+      } else {
+        item.quantity = quantity
+      }
+    });
+    this.total = (this.addPrices(this.items))()
+  }
+
 }

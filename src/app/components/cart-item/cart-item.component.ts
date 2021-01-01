@@ -15,11 +15,6 @@ export class CartItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  updateQuantity(item:Item) {
-    let quantityInput = (<HTMLInputElement>document.getElementById("quantity")).value
-    item.quantity = parseInt(quantityInput.toString());
-  }
-
   //  Delete from list
 
   // onDelete(item:Item) {
