@@ -39,7 +39,7 @@
 							<h4 class="text-right">Total <strong>${{total | number: '1.2-2'}}</strong></h4>
 						</div>
 						<div class="col-xs-3">
-							<button type="button" class="btn btn-success btn-block" [routerLink]="['../checkout']">
+							<button type="button" class="btn btn-success btn-block" [routerLink]="['../checkout']" [queryParams]="{total: total}">
 								Checkout
 							</button>
 						</div>
