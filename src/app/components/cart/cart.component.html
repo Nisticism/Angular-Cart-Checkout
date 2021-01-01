@@ -17,7 +17,7 @@
 					</div>
 				</div>
 				<div class="panel-body">
-					<app-cart-item *ngFor="let item of items" [item] = "item">
+					<app-cart-item *ngFor="let item of items" [item] = "item" (deleteItemEvent)="deleteItem($event)">
 
 					</app-cart-item>
 					<div class="row">

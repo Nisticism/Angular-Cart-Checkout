@@ -12,7 +12,7 @@
             <input type="text" class="form-control input-sm" value= {{item.quantity}} id="quantity{{item.id}}">
         </div>
         <div class="col-xs-2">
-            <button type="button" class="btn btn-link btn-xs">
+            <button type="button" class="btn btn-link btn-xs" (click)="deleteItem(item)">
                 <span class="glyphicon glyphicon-trash"> </span>
             </button>
         </div>
