@@ -9,21 +9,23 @@ export class ItemService {
 
   // Default items, if no API
   items: Item[] = [
-    new Item(1, 'Item 1', 10.5, 'This is the description'),
-    new Item(2, 'Item 2', 20, 'This is the description'),
-    new Item(3, 'Item 3', 30, 'This is the description'),
-    new Item(4, 'Item 4', 40, 'This is the description'),
-    new Item(5, 'Item 5', 50, 'This is the description'),
+    new Item(1, 'Item 1', 10.5, 2, 'This is the description', 'http://placehold.it/100x70'),
+    new Item(2, 'Item 2', 20, 1, 'This is the description', 'http://placehold.it/100x70'),
+    new Item(3, 'Item 3', 30, 1, 'This is the description', 'http://placehold.it/100x70'),
+    new Item(4, 'Item 4', 40, 1, 'This is the description', 'http://placehold.it/100x70'),
+    new Item(5, 'Item 5', 50, 1, 'This is the description', 'http://placehold.it/100x70'),
   ]
 
   constructor() { }
 
-  deleteItem(item:Item) {
+  deleteItem(target:Item) {
     //  delete item
+    this.items.filter(item => item.id != target.id)
   }
 
   getItems(): Item[] {
     //  Connect to API to return list
     return this.items
   }
+
 }

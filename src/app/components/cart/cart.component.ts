@@ -10,18 +10,20 @@ import { Item } from '../../models/Item';
 export class CartComponent implements OnInit {
 
   items: Item[] = []
+  total: number = 0;
 
   constructor(private itemService: ItemService) { }
 
   ngOnInit(): void {
-    console.log(this.itemService.getItems())
-    //this.itemService.getItems()
+    this.items = this.itemService.getItems()
+
+    this.total = (this.addPrices(this.items)());
   }
 
   //  add up prices to get total
-  total() {
+  addPrices = (items: Item[]) => function() {
     let total = 0;
-    this.items.forEach(item => total += item.price);
+    items.forEach(item => total += item.price * item.quantity);
     return total;
   }
 
