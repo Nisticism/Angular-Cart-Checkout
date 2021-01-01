@@ -15,7 +15,7 @@ export class CartItemComponent implements OnInit {
   constructor() { 
   }
 
-  //  Delete Items
+  //  Delete items calls back to the cart with the target
   deleteItem(item: Item) {
     this.deleteItemEvent.emit(item)
   }

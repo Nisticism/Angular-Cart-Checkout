@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-// import { Item } from '../../models/Item';
 
 @Component({
   selector: 'app-checkout',
@@ -10,7 +9,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CheckoutComponent implements OnInit {
 
   total!: number;
-  //items!: Item[];
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
@@ -19,9 +17,8 @@ export class CheckoutComponent implements OnInit {
       params => {
         this.total = params['total'];
 
-        //  Not possible with queryParams only
+        //  At some point, add the ability to pass the items array back to the cart component, should the user click the final button.
 
-        // this.items = params['items'];
       }
     )
   }

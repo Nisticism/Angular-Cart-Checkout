@@ -17,19 +17,6 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = this.itemService.getItems()
-
-    //  I wanted to be able to set this up, but I can't send complex objects with queryParams apparently
-
-    // //  If we get items from somewhere else, it will happen here:
-    // this.route.queryParams.subscribe(
-    //   params => {
-    //     // receive the items if they exist
-    //     if (params['items']) {
-    //       this.items = params['items'];
-    //     }
-    //   }
-    // )
-
     this.total = (this.addPrices(this.items)());
   }
 
@@ -54,6 +41,7 @@ export class CartComponent implements OnInit {
     this.total = (this.addPrices(this.items))()
   }
 
+  //  Delete item from array
   deleteItem(iteme:Item) {
     this.items = this.items.filter(item => item.id != iteme.id)
     this.total = (this.addPrices(this.items))()
